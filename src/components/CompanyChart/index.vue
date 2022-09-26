@@ -1,11 +1,15 @@
 <template>
-  <div class="flex justify-center">
-    <keep-alive>
+  <div class="flex flex-col justify-center gap-6 p-10">
+    <div
+      class="flex flex-col text-center text-blue-600 bg-gray-500 rounded-md shadow-md w-full"
+    >
       <highchart :options="accOps"></highchart>
-    </keep-alive>
-    <keep-alive>
+    </div>
+    <div
+      class="flex flex-col text-center text-purple-500 bg-gray-500 rounded-md shadow-md w-full"
+    >
       <highchart :options="deltaOps"></highchart>
-    </keep-alive>
+    </div>
   </div>
 </template>
 

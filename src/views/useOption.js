@@ -10,13 +10,13 @@ export default () => {
     title: {
       text: "Total consumtion",
       style: {
-        color: "#fff",
+        // color: "#fff",
       },
     },
     subtitle: {
       text: "",
       style: {
-        color: "#fff",
+        // color: "#fff",
       },
     },
     legend: {
@@ -28,7 +28,7 @@ export default () => {
       labels: {
         rotation: 0,
         style: {
-          color: "#fff",
+          // color: "#fff",
         },
       },
     },
@@ -46,7 +46,7 @@ export default () => {
       title: {
         text: "kWh",
         style: {
-          color: "#fff",
+          // color: "#fff",
         },
       },
       gridLineColor: "transparent",

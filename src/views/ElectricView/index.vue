@@ -1,8 +1,12 @@
 <template>
   <div class="bg-gray-100 h-full">
-    <div class="company flex flex-col shadow-sm bg-white m-4 p-4">
-      <span>{{ companyName.toUpperCase() }}</span>
-      <div class="charts">
+    <div class="company flex flex-col shadow-sm bg-white h-full">
+      <span
+        class="flex flex-col items-center justify-center text-2xl text-white bg-gray-500 h-20 shadow-sm"
+        >{{ name.toUpperCase() }}
+        <span class="text-base mt-2">Electric metric</span>
+      </span>
+      <div class="charts mt-5">
         <keep-alive>
           <companycharts
             :deviceType="'electric'"
@@ -23,16 +27,12 @@ export default {
   components: {
     companycharts: CompanyChart,
   },
+  props: ["name"],
 
-  setup() {
+  setup(props) {
     const companies = IDS_MAP;
-    const companyName = window.location.href
-      .replace("http://", "")
-      .split(".")[0]
-      .toUpperCase();
-    const deviceID = companies[companyName].electric;
+    const deviceID = companies[props.name].electric;
     return {
-      companyName,
       deviceID,
     };
   },
