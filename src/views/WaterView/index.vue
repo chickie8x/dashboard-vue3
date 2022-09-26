@@ -6,7 +6,7 @@
         >{{ name.toUpperCase() }}
         <span class="text-base mt-2">Water metric</span>
       </span>
-      <div class="charts mt-5">
+      <div class="charts">
         <keep-alive>
           <companycharts
             :deviceType="'water'"
