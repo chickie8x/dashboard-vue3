@@ -37,14 +37,25 @@ export default {
     const { accumulateOption, deltaOption } = useOption();
     const accOps = ref(accumulateOption());
     const deltaOps = ref(deltaOption());
-
     const fetch = async () => {
       const data = await axios.get(`${baseURL}${props.deviceID}`);
       if (data) {
+        console.log(data.data.length);
         let _data = data.data.sort((a, b) => a.timestamp - b.timestamp);
         _data.forEach((item) => {
-          accOps.value.series[0].data.push([item.timestamp, item.consumption]);
-          deltaOps.value.series[0].data.push([item.timestamp, item.delta]);
+          if (props.deviceType === "water") {
+            accOps.value.series[0].data.push([
+              item.timestamp,
+              item.consumption,
+            ]);
+            deltaOps.value.series[0].data.push([item.timestamp, item.delta]);
+          } else if (props.deviceType === "electric") {
+            accOps.value.series[0].data.push([item.timestamp, item.tariff]);
+            deltaOps.value.series[0].data.push([
+              item.timestamp,
+              item.tariffDelta,
+            ]);
+          }
         });
       }
     };
