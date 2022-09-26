@@ -1,12 +1,10 @@
 <template>
-  <div class="flex flex-col justify-center gap-6 p-10">
-    <div
-      class="flex flex-col text-center text-blue-600 bg-gray-500 rounded-md shadow-md w-full"
-    >
+  <div class="flex flex-col bg-gray-200 justify-center gap-6 p-10">
+    <div class="flex flex-col rounded-md shadow-md w-full">
       <highchart :options="accOps"></highchart>
     </div>
     <div
-      class="flex flex-col text-center text-purple-500 bg-gray-500 rounded-md shadow-md w-full"
+      class="flex flex-col text-center text-purple-500 rounded-md shadow-md w-full"
     >
       <highchart :options="deltaOps"></highchart>
     </div>

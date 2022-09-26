@@ -5,7 +5,9 @@ export default () => {
   const defaultOption = () => ({
     chart: {
       zoomType: "x",
-      backgroundColor: "transparent",
+      backgroundColor: "#fff",
+      borderRadius: 10,
+      height: 500,
     },
     title: {
       text: "Total consumtion",
@@ -53,7 +55,7 @@ export default () => {
       labels: {
         rotation: 0,
         style: {
-          color: "#fff",
+          // color: "#fff",
         },
       },
     },
@@ -109,7 +111,7 @@ export default () => {
       title: {
         text: "Delta",
         style: {
-          color: "#fff",
+          // color: "#fff",
         },
       },
       colors: ["rgb(217 70 239)"],
@@ -128,21 +130,21 @@ export default () => {
       title: {
         text: "Tempature",
         style: {
-          color: "#fff",
+          // color: "#fff",
         },
       },
       yAxis: {
         title: {
           text: "°C",
           style: {
-            color: "#fff",
+            // color: "#fff",
           },
         },
         gridLineColor: "transparent",
         labels: {
           rotation: 0,
           style: {
-            color: "#fff",
+            // color: "#fff",
           },
         },
       },

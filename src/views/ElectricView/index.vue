@@ -2,7 +2,7 @@
   <div class="bg-gray-100 h-full">
     <div class="company flex flex-col shadow-sm bg-white h-full">
       <span
-        class="flex flex-col items-center justify-center text-2xl text-white bg-gray-500 h-20 shadow-sm"
+        class="flex flex-col items-center justify-center text-2xl h-20 shadow-lg"
         >{{ name.toUpperCase() }}
         <span class="text-base mt-2">Electric metric</span>
       </span>
