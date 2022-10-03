@@ -1,11 +1,6 @@
 <template>
-  <div class="bg-gray-100 h-full">
-    <div class="company flex flex-col shadow-sm bg-white h-full">
-      <span
-        class="flex flex-col items-center justify-center text-2xl h-20 shadow-lg"
-        >{{ name.toUpperCase() }}
-        <span class="text-base mt-2">Water metric</span>
-      </span>
+  <div class="h-full mt-6">
+    <div class="company flex flex-col h-full">
       <div class="charts">
         <keep-alive>
           <companycharts

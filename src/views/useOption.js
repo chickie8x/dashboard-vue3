@@ -7,7 +7,7 @@ export default () => {
       zoomType: "x",
       backgroundColor: "#fff",
       borderRadius: 10,
-      height: 500,
+      height: 300,
     },
     title: {
       text: "Total consumtion",
@@ -95,6 +95,9 @@ export default () => {
   const accumulateOption = (tab) => {
     return {
       ...defaultOption(tab),
+      title: {
+        text: "",
+      },
       colors: ["rgb(14 165 233)"],
       series: [
         {

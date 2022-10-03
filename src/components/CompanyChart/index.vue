@@ -1,11 +1,9 @@
 <template>
-  <div class="flex flex-col bg-gray-200 justify-center gap-6 p-10">
-    <div class="flex flex-col rounded-md shadow-md w-full">
+  <div class="flex justify-between gap-x-6 w-full">
+    <div class="rounded-md shadow-md">
       <highchart :options="accOps"></highchart>
     </div>
-    <div
-      class="flex flex-col text-center text-purple-500 rounded-md shadow-md w-full"
-    >
+    <div class="rounded-md shadow-md">
       <highchart :options="deltaOps"></highchart>
     </div>
   </div>
@@ -50,13 +48,17 @@ export default {
               item.timestamp,
               item.consumption,
             ]);
+            accOps.value.title.text = "Water Total Comsumption";
             deltaOps.value.series[0].data.push([item.timestamp, item.delta]);
+            deltaOps.value.title.text = "Water Delta";
           } else if (props.deviceType === "electric") {
             accOps.value.series[0].data.push([item.timestamp, item.tariff]);
+            accOps.value.title.text = "Electric Total Comsumption";
             deltaOps.value.series[0].data.push([
               item.timestamp,
               item.tariffDelta,
             ]);
+            deltaOps.value.title.text = "Electric Delta";
           }
         });
       }
