@@ -1,9 +1,9 @@
 <template>
   <div class="flex justify-between gap-x-6 w-full">
-    <div class="rounded-md shadow-md">
+    <div class="rounded-md shadow-md w-1/2">
       <highchart :options="accOps"></highchart>
     </div>
-    <div class="rounded-md shadow-md">
+    <div class="rounded-md shadow-md w-1/2">
       <highchart :options="deltaOps"></highchart>
     </div>
   </div>

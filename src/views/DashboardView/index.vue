@@ -1,13 +1,5 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <!--
-    This example requires updating your template:
-
-    ```
-    <html class="h-full bg-gray-100">
-    <body class="h-full">
-    ```
-  -->
   <div>
     <TransitionRoot as="template" :show="sidebarOpen">
       <Dialog
@@ -236,7 +228,14 @@
             <sumary-info></sumary-info>
             <water-view :name="companyName"></water-view>
             <electric-view :name="companyName"></electric-view>
-            <TableInfo />
+            <div class="mt-6 flex w-full gap-x-2">
+              <div class="w-2/3 shadow-md">
+                <TableInfo />
+              </div>
+              <div class="bg-white flex-1 shadow-md">
+                <EmergencyAlert />
+              </div>
+            </div>
           </div>
         </div>
       </main>
@@ -268,6 +267,7 @@ import WaterView from "../WaterView/index.vue";
 import SumaryInfo from "../../components/SumaryInfo/index.vue";
 import ElectricView from "../ElectricView/index.vue";
 import TableInfo from "../../components/TableInfo/index.vue";
+import EmergencyAlert from "../../components/EmergencyAlert/index.vue";
 
 const navigation = [
   { name: "Dashboard", href: "#", icon: HomeIcon, current: true },

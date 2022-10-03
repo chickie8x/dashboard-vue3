@@ -9,6 +9,7 @@
             :key="idx"
             scope="col"
             class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
+            :class="idx === 0 ? '!text-white bg-slate-700 uppercase ' : ''"
           >
             {{ col }}
           </th>
@@ -19,7 +20,8 @@
           <td
             v-for="(item, idx) in cell"
             :key="idx"
-            class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6"
+            class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-900 sm:pl-6"
+            :class="idx === 0 ? 'font-bold' : ''"
           >
             {{ item }}
           </td>
