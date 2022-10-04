@@ -53,11 +53,7 @@
                 </div>
               </TransitionChild>
               <div class="flex flex-shrink-0 items-center px-4">
-                <img
-                  class="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                  alt="Your Company"
-                />
+                <img class="h-8 w-auto" :src="companyLogo" alt="Your Company" />
               </div>
               <div class="mt-5 h-0 flex-1 overflow-y-auto">
                 <nav class="space-y-1 px-2">
@@ -100,11 +96,10 @@
       <!-- Sidebar component, swap this element with another sidebar if you like -->
       <div class="flex min-h-0 flex-1 flex-col bg-gray-800">
         <div class="flex h-16 flex-shrink-0 items-center bg-gray-900 px-4">
-          <img
-            class="h-8 w-auto"
-            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-            alt="Your Company"
-          />
+          <img class="h-8 w-auto" :src="companyLogo" alt="Your Company" />
+          <span class="text-white uppercase text-lg ml-2">{{
+            companyName
+          }}</span>
         </div>
         <div class="flex flex-1 flex-col overflow-y-auto">
           <nav class="flex-1 space-y-1 px-2 py-4">
@@ -268,7 +263,7 @@ import SumaryInfo from "../../components/SumaryInfo/index.vue";
 import ElectricView from "../ElectricView/index.vue";
 import TableInfo from "../../components/TableInfo/index.vue";
 import EmergencyAlert from "../../components/EmergencyAlert/index.vue";
-
+import { COMPANY_RESOURCES } from "../../components/Companies";
 const navigation = [
   { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
 ];
@@ -284,5 +279,5 @@ const companyName = window.location.href
   .split(".")[0]
   .toUpperCase();
 
-// const companyLogo = COMPANY_RESOURCES[companyName].logo;
+const companyLogo = COMPANY_RESOURCES[companyName].logo;
 </script>

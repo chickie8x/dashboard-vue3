@@ -40,7 +40,6 @@ export default {
     const fetch = async () => {
       const data = await axios.get(`${baseURL}${props.deviceID}`);
       if (data) {
-        console.log(data.data.length);
         let _data = data.data.sort((a, b) => a.timestamp - b.timestamp);
         _data.forEach((item) => {
           if (props.deviceType === "water") {
