@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div>
-    <table class="min-w-full divide-y divide-gray-300">
+  <div class="w-full">
+    <table class="min-w-full divide-y divide-gray-300 rounded-md">
       <thead class="bg-gray-50">
         <tr>
           <th

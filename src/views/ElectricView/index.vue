@@ -1,11 +1,11 @@
 <template>
-  <div class="h-full mt-6">
+  <div class="h-full">
     <div class="company flex flex-col h-full">
       <div class="charts">
         <keep-alive>
           <companycharts
-            :deviceType="'electric'"
-            :deviceID="deviceID"
+            :dataType="electric"
+            :devideType="'electric'"
           ></companycharts>
         </keep-alive>
       </div>
@@ -14,21 +14,18 @@
 </template>
 
 <script>
-import { IDS_MAP } from "../../components/Companies/index.js";
 import CompanyChart from "../../components/CompanyChart/index.vue";
+import { electric } from "../../components/Companies/electric";
 
 export default {
   name: "ElectricView",
   components: {
     companycharts: CompanyChart,
   },
-  props: ["name"],
 
-  setup(props) {
-    const companies = IDS_MAP;
-    const deviceID = companies[props.name].electric;
+  setup() {
     return {
-      deviceID,
+      electric,
     };
   },
 };

@@ -52,8 +52,8 @@
                   </button>
                 </div>
               </TransitionChild>
-              <div class="flex flex-shrink-0 items-center px-4">
-                <img class="h-8 w-auto" :src="companyLogo" alt="Your Company" />
+              <div class="flex justify-center flex-shrink-0 items-center px-4">
+                <LogoImg />
               </div>
               <div class="mt-5 h-0 flex-1 overflow-y-auto">
                 <nav class="space-y-1 px-2">
@@ -95,11 +95,10 @@
     <div class="hidden md:fixed md:inset-y-0 md:flex md:w-64 md:flex-col">
       <!-- Sidebar component, swap this element with another sidebar if you like -->
       <div class="flex min-h-0 flex-1 flex-col bg-gray-800">
-        <div class="flex h-16 flex-shrink-0 items-center bg-gray-900 px-4">
-          <img class="h-8 w-auto" :src="companyLogo" alt="Your Company" />
-          <span class="text-white uppercase text-lg ml-2">{{
-            companyName
-          }}</span>
+        <div
+          class="flex justify-center h-16 flex-shrink-0 items-center bg-gray-900 px-4"
+        >
+          <LogoImg />
         </div>
         <div class="flex flex-1 flex-col overflow-y-auto">
           <nav class="flex-1 space-y-1 px-2 py-4">
@@ -220,16 +219,34 @@
       <main class="flex-1">
         <div class="py-6">
           <div class="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
-            <sumary-info></sumary-info>
-            <water-view :name="companyName"></water-view>
-            <electric-view :name="companyName"></electric-view>
-            <div class="mt-6 flex w-full gap-x-2">
-              <div class="w-2/3 shadow-md">
-                <TableInfo />
+            <EmergencyAlert />
+            <SumaryInfo class="mt-6" />
+            <div class="mt-8">
+              <span
+                class="flex w-fit text-slate-600 uppercase mb-2 font-bold border-b-2 border-slate-500"
+                >Water metric</span
+              >
+              <WaterView />
+            </div>
+            <div class="mt-8">
+              <span
+                class="flex w-fit text-slate-600 uppercase mb-2 font-bold border-b-2 border-slate-500"
+                >Electric metric</span
+              >
+              <ElectricView />
+            </div>
+            <div
+              class="flex flex-col lg:flex-row mt-6 lg:gap-x-6 gap-y-6 w-full"
+            >
+              <div class="lg:w-1/2 w-full">
+                <TempView />
               </div>
-              <div class="bg-white flex-1 shadow-md">
-                <EmergencyAlert />
+              <div class="lg:w-1/2 w-full">
+                <HumiView />
               </div>
+            </div>
+            <div class="mt-6 flex w-full gap-x-2 shadow-md">
+              <TableInfo />
             </div>
           </div>
         </div>
@@ -258,12 +275,14 @@ import {
   XMarkIcon,
 } from "@heroicons/vue/24/outline";
 import { MagnifyingGlassIcon } from "@heroicons/vue/20/solid";
-import WaterView from "../WaterView/index.vue";
 import SumaryInfo from "../../components/SumaryInfo/index.vue";
 import ElectricView from "../ElectricView/index.vue";
 import TableInfo from "../../components/TableInfo/index.vue";
 import EmergencyAlert from "../../components/EmergencyAlert/index.vue";
-import { COMPANY_RESOURCES } from "../../components/Companies";
+import WaterView from "../WaterView/index.vue";
+import LogoImg from "../../components/icons/LogoImg.vue";
+import TempView from "../TempView/index.vue";
+import HumiView from "../HumidityView/index.vue";
 const navigation = [
   { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
 ];
@@ -274,10 +293,4 @@ const userNavigation = [
 ];
 
 const sidebarOpen = ref(false);
-const companyName = window.location.href
-  .replace("http://", "")
-  .split(".")[0]
-  .toUpperCase();
-
-const companyLogo = COMPANY_RESOURCES[companyName].logo;
 </script>

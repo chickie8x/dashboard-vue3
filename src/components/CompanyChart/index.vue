@@ -1,9 +1,11 @@
 <template>
-  <div class="flex justify-between gap-x-6 w-full">
-    <div class="rounded-md shadow-md w-1/2">
+  <div
+    class="flex lg:flex-row flex-col justify-between lg:gap-x-6 gap-y-6 w-full"
+  >
+    <div class="rounded-md shadow-md lg:w-1/2 w-full">
       <highchart :options="accOps"></highchart>
     </div>
-    <div class="rounded-md shadow-md w-1/2">
+    <div class="rounded-md shadow-md lg:w-1/2 w-full">
       <highchart :options="deltaOps"></highchart>
     </div>
   </div>
@@ -11,8 +13,6 @@
 
 <script>
 import { Chart } from "highcharts-vue";
-import { onMounted } from "vue";
-import axios from "axios";
 import useOption from "../../views/useOption";
 import { ref } from "vue";
 
@@ -21,54 +21,77 @@ export default {
   components: {
     highchart: Chart,
   },
+
   props: {
-    deviceType: {
-      type: String,
+    dataType: {
+      type: Array,
       require: true,
     },
-    deviceID: {
+    devideType: {
       type: String,
       require: true,
     },
   },
 
   setup(props) {
-    const baseURL = `https://nk-ld1.trai.xyz/api/devices/`;
     const { accumulateOption, deltaOption } = useOption();
     const accOps = ref(accumulateOption());
     const deltaOps = ref(deltaOption());
-    const fetch = async () => {
-      const data = await axios.get(`${baseURL}${props.deviceID}`);
-      if (data) {
-        let _data = data.data.sort((a, b) => a.timestamp - b.timestamp);
+    // eslint-disable-next-line vue/no-setup-props-destructure
+    const data = props.dataType;
+    let _data = data.sort((a, b) => a.timestamp - b.timestamp);
+    if (props.devideType === "water") {
+      if (_data.length) {
         _data.forEach((item) => {
-          if (props.deviceType === "water") {
-            accOps.value.series[0].data.push([
-              item.timestamp,
-              item.consumption,
-            ]);
-            accOps.value.title.text = "Water Total Comsumption";
-            deltaOps.value.series[0].data.push([item.timestamp, item.delta]);
-            deltaOps.value.title.text = "Water Delta";
-          } else if (props.deviceType === "electric") {
-            accOps.value.series[0].data.push([item.timestamp, item.tariff]);
-            accOps.value.title.text = "Electric Total Comsumption";
-            deltaOps.value.series[0].data.push([
-              item.timestamp,
-              item.tariffDelta,
-            ]);
-            deltaOps.value.title.text = "Electric Delta";
-          }
+          accOps.value.series[0].data.push([item.timestamp, item.consumption]);
+          accOps.value.title.text = "Consumption";
+          deltaOps.value.series[0].data.push([item.timestamp, item.delta]);
         });
       }
-    };
+    } else if (props.devideType === "electric") {
+      if (_data.length) {
+        _data.forEach((item) => {
+          accOps.value.series[0].data.push([item.timestamp, item.tariff]);
+          accOps.value.title.text = "Tariff";
+          deltaOps.value.series[0].data.push([
+            item.timestamp,
+            item.tariffDelta,
+          ]);
+        });
+      }
+    }
 
-    onMounted(() => {
-      fetch();
-    });
+    // const fetch = async () => {
+    //   const data = await axios.get(`${baseURL}${props.deviceID}`);
+    //   if (data) {
+    //     let _data = data.data.sort((a, b) => a.timestamp - b.timestamp);
+    //     _data.forEach((item) => {
+    //       if (props.deviceType === "water") {
+    //         accOps.value.series[0].data.push([
+    //           item.timestamp,
+    //           item.consumption,
+    //         ]);
+    //         accOps.value.title.text = "Water Total Comsumption";
+    //         deltaOps.value.series[0].data.push([item.timestamp, item.delta]);
+    //         deltaOps.value.title.text = "Water Delta";
+    //       } else if (props.deviceType === "electric") {
+    //         accOps.value.series[0].data.push([item.timestamp, item.tariff]);
+    //         accOps.value.title.text = "Electric Total Comsumption";
+    //         deltaOps.value.series[0].data.push([
+    //           item.timestamp,
+    //           item.tariffDelta,
+    //         ]);
+    //         deltaOps.value.title.text = "Electric Delta";
+    //       }
+    //     });
+    //   }
+    // };
+
+    // onMounted(() => {
+    //   fetch();
+    // });
 
     return {
-      baseURL,
       accOps,
       deltaOps,
     };

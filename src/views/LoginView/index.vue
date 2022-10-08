@@ -9,12 +9,7 @@
           href="#"
           class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
         >
-          <img
-            class="w-16 h-16 border rounded-full mr-2"
-            :src="logo"
-            alt="logo"
-          />
-          {{ name.toUpperCase() }}
+          <LogoImg />
         </a>
         <div
           class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700"
@@ -96,20 +91,12 @@
 </template>
 
 <script>
-import { COMPANY_RESOURCES } from "../../components/Companies/index.js";
+import LogoImg from "../../components/icons/LogoImg.vue";
+
 export default {
   setup() {
-    const _path = window.location.href
-      .replace("http://", "")
-      .split(".")[0]
-      .toUpperCase();
-    console.log(_path);
-    const logo = COMPANY_RESOURCES[_path].logo;
-    const name = COMPANY_RESOURCES[_path].name;
-    return {
-      logo,
-      name,
-    };
+    return {};
   },
+  components: { LogoImg },
 };
 </script>

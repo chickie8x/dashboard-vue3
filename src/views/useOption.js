@@ -168,7 +168,7 @@ export default () => {
       title: {
         text: "Humidity",
         style: {
-          color: "#fff",
+          // color: "#fff",
         },
       },
       yAxis: {
