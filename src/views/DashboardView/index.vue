@@ -223,14 +223,14 @@
             <SumaryInfo class="mt-6" />
             <div class="mt-8">
               <span
-                class="flex w-fit text-slate-600 uppercase mb-2 font-bold border-b-2 border-slate-500"
+                class="flex w-fit text-slate-600 uppercase mb-4 font-bold border-b-2 border-slate-500"
                 >Water metric</span
               >
               <WaterView />
             </div>
             <div class="mt-8">
               <span
-                class="flex w-fit text-slate-600 uppercase mb-2 font-bold border-b-2 border-slate-500"
+                class="flex w-fit text-slate-600 uppercase mb-4 font-bold border-b-2 border-slate-500"
                 >Electric metric</span
               >
               <ElectricView />
