@@ -4,29 +4,29 @@
   >
     <div class="flex flex-col items-center flex-1 py-4">
       <span class="text-slate-500">Temparature</span>
-      <span class="text-2xl font-bold text-slate-700">{{
-        temp.toFixed(2)
-      }}</span>
+      <span class="text-2xl font-bold text-slate-700"
+        >{{ temp.toFixed(2) }}°C</span
+      >
     </div>
 
     <div class="flex flex-col items-center flex-1 py-4">
       <span class="text-slate-500">Humidity</span>
-      <span class="text-2xl font-bold text-slate-700">{{
-        humi.toFixed(2)
-      }}</span>
+      <span class="text-2xl font-bold text-slate-700"
+        >{{ humi.toFixed(2) }}%</span
+      >
     </div>
 
     <div class="flex flex-col items-center flex-1 py-4">
       <span class="text-slate-500">Water</span>
       <span class="text-2xl font-bold text-slate-700">{{
-        water.toLocaleString().split(".")[0]
+        water.toLocaleString("en-US")
       }}</span>
     </div>
 
     <div class="flex flex-col items-center flex-1 py-4">
       <span class="text-slate-500">Electric</span>
       <span class="text-2xl font-bold text-slate-700">{{
-        electric.toLocaleString().split(".")[0]
+        electric.toLocaleString("en-US")
       }}</span>
     </div>
   </div>
@@ -55,9 +55,9 @@ export default {
         humi.value += Math.random();
       }
 
-      water.value += Math.random() * 10;
+      water.value += Number((Math.random() * 10).toFixed(0));
 
-      electric.value += Math.random() * 10;
+      electric.value += Number((Math.random() * 10).toFixed(0));
     }, 3000);
 
     onMounted(() => {
