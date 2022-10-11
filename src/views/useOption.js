@@ -175,14 +175,14 @@ export default () => {
         title: {
           text: "%",
           style: {
-            color: "#fff",
+            // color: "#fff",
           },
         },
         gridLineColor: "transparent",
         labels: {
           rotation: 0,
           style: {
-            color: "#fff",
+            // color: "#fff",
           },
         },
       },

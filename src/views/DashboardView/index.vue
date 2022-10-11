@@ -240,7 +240,7 @@
                 class="flex w-fit text-slate-600 uppercase font-bold border-b-2 border-slate-500 mb-4"
                 >Temparature and Humidity</span
               >
-              <div class="flex flex-row w-full lg:gap-x-6 gap-y-6">
+              <div class="flex flex-col md:flex-row w-full lg:gap-x-6 gap-y-6">
                 <div class="lg:w-1/2 w-full">
                   <TempView />
                 </div>

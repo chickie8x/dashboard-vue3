@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex w-full flex-row justify-between bg-white shadow-md rounded-lg divide-x divide-slade-500"
+    class="flex w-full flex-col md:flex-row justify-between bg-white shadow-md rounded-lg divide-x divide-slade-500"
   >
     <div class="flex flex-col items-center flex-1 py-4">
       <span class="text-slate-500">Temparature</span>
