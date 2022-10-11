@@ -249,7 +249,11 @@
                 </div>
               </div>
             </div>
-            <div class="mt-6 flex w-full gap-x-2 shadow-md">
+            <span
+              class="flex w-fit text-slate-600 uppercase font-bold border-b-2 border-slate-500 mb-4 mt-6"
+              >Analysis</span
+            >
+            <div class="flex w-full gap-x-2 shadow-md">
               <TableInfo />
             </div>
           </div>
