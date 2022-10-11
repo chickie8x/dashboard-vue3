@@ -235,14 +235,18 @@
               >
               <ElectricView />
             </div>
-            <div
-              class="flex flex-col lg:flex-row mt-6 lg:gap-x-6 gap-y-6 w-full"
-            >
-              <div class="lg:w-1/2 w-full">
-                <TempView />
-              </div>
-              <div class="lg:w-1/2 w-full">
-                <HumiView />
+            <div class="flex flex-col mt-6 w-full">
+              <span
+                class="flex w-fit text-slate-600 uppercase font-bold border-b-2 border-slate-500 mb-4"
+                >Temparature and Humidity</span
+              >
+              <div class="flex flex-row w-full lg:gap-x-6 gap-y-6">
+                <div class="lg:w-1/2 w-full">
+                  <TempView />
+                </div>
+                <div class="lg:w-1/2 w-full">
+                  <HumiView />
+                </div>
               </div>
             </div>
             <div class="mt-6 flex w-full gap-x-2 shadow-md">

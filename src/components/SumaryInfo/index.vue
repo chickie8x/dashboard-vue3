@@ -18,16 +18,16 @@
 
     <div class="flex flex-col items-center flex-1 py-4">
       <span class="text-slate-500">Water</span>
-      <span class="text-2xl font-bold text-slate-700">{{
-        water.toLocaleString("en-US")
-      }}</span>
+      <span class="text-2xl font-bold text-slate-700"
+        >{{ water.toLocaleString("en-US") }} <span>m<sup>3</sup></span></span
+      >
     </div>
 
     <div class="flex flex-col items-center flex-1 py-4">
       <span class="text-slate-500">Electric</span>
-      <span class="text-2xl font-bold text-slate-700">{{
-        electric.toLocaleString("en-US")
-      }}</span>
+      <span class="text-2xl font-bold text-slate-700"
+        >{{ electric.toLocaleString("en-US") }} kW</span
+      >
     </div>
   </div>
 </template>
